@@ -1,0 +1,16 @@
+# Virtual environment
+venv/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment or dependency files (optional)
+.env
+
+# Ignore IDE or editor-specific files
+.vscode/
+.idea/
+*.swp
