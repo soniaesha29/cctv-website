@@ -380,5 +380,6 @@ def create_admin():
 
 
 if __name__ == "__main__":
-  port = int(os.environ.get("PORT", 10000))  # Render assigns a dynamic port
-  app.run(host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 10000))  # Default port 10000
+    app.run(host="0.0.0.0", port=port, debug=True)
+
