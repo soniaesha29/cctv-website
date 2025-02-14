@@ -66,7 +66,7 @@ def check_name():
         return jsonify({"exists": len(result['resources']) > 0})
     except Exception as error:
         print('Error checking name:', error)
-        return jsonify({"error": 'Failed to check name'}), 500
+        return jsonify({"error": 'Failed to check name'}), 500
 
 @app.route('/upload_folder_images', methods=['POST'])
 def upload_folder_images():
