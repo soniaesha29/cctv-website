@@ -54,7 +54,19 @@ def index():
         return render_template("index.html", records=records)
     except Exception as e:
         return f"An error occurred: {e}", 500
-    
+
+@app.route('/check-name', methods=['GET'])
+def check_name():
+    try:
+        name = request.args.get('name')
+        
+        # Search for resources with the given name
+        result = cloudinary.Search().expression(f"folder:uploads AND context.name:{name}").execute()
+        
+        return jsonify({"exists": len(result['resources']) > 0})
+    except Exception as error:
+        print('Error checking name:', error)
+        return jsonify({"error": 'Failed to check name'}), 500
 
 @app.route('/upload_folder_images', methods=['POST'])
 def upload_folder_images():
